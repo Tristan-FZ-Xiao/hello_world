@@ -1,3 +1,5 @@
+var a = {}
+
 function get_all_subnode(openId) {
 	return [
 		{openId: "xxxx1", name:"yyyy1"},
@@ -6,6 +8,14 @@ function get_all_subnode(openId) {
 	]
 }
 
+function get_all_subnode1() {
+	return [
+		{openId: "xxxx11", name:"yyyy11"},
+		{openId: "xxxx22", name:"yyyy22"},
+		{openId: "xxxx33", name:"yyyy33"}
+	]
+}
+  
 function create_tree(root, max) {
     if (max < 0)
        return
@@ -32,8 +42,13 @@ function search_node(root, openId) {
     return null
 }
 
+function update_tree(root) {
+    root.subnode = get_all_subnode1()
+}
+  
 var root = {}
 root.openId = "xxxx0"
 create_tree(root, 2)
 node = search_node(root, "xxxx2")
-console.log(node)
+update_tree(node)
+console.log(root)
